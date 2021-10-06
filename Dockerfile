@@ -101,7 +101,7 @@ FROM alpine:latest
 COPY --from=builder /home/llvm /usr/local/
 
 # built clang and friends depend on execinfo and use libgcc_s as unwinder (but the binaries they produce use libunwind)
-RUN apk add libexecinfo libgcc libatomic ncurses libc-dev libxml2
+RUN apk add --no-cache libexecinfo libgcc libatomic ncurses libc-dev libxml2
 
 ENV CC="/usr/local/bin/clang"           \
     CXX="/usr/local/bin/clang++"        \
